@@ -48,7 +48,7 @@ public class CalculatorTestSuite {
     }
 
     @Test
-    public void testDivAByBMethod() {
+    public void testDivAByBNot0Method() {
         //Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
@@ -57,5 +57,16 @@ public class CalculatorTestSuite {
         double val = calculator.divAbyB(7.8, 2.2);
         //Then
         Assert.assertEquals(3.54545, val, 0.00001);
+    }
+    @Test
+    public void testDivAByB0Method() {
+        //Given
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Calculator calculator = context.getBean(Calculator.class);
+        //When
+        double val = calculator.divAbyB(7.8, 0);
+        //Then
+        Assert.assertEquals(-1, val, 0.00001);
     }
 }
