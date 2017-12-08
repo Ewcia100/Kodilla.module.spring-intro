@@ -9,22 +9,14 @@ import java.util.List;
 @Service
 public final class Library {
     private final List<String> books = new ArrayList<>();
-    //private LibraryDbController libraryDbController;
-    //Wstrzykiwanie zależności poprzez konstruktor
-//    @Autowired
-//    public Library(final LibraryDbController libraryDbController) {
-//        this.libraryDbController = libraryDbController;
-//    }
-//    public Library() {
-//    }
-//Wstrzykiwanie zależności poprzez metodę
-//    @Autowired
-//    public void setLibraryDbController(LibraryDbController libraryDbController) {
-//        this.libraryDbController = libraryDbController;
-//    }
-//Wstrzykiwanie zależności do właściwości klasy
-    @Autowired
     private LibraryDbController libraryDbController;
+
+    public Library(final LibraryDbController libraryDbController) {
+        this.libraryDbController = libraryDbController;
+    }
+
+    public Library() {
+    }
 
 
     public void saveToDb() {
